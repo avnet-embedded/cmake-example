@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 
 # project name and supported languages
-project(example Fortran C CXX)
+project(example C CXX)
 
 # guard against in-source builds and bad build-type strings
 include(cmake/safeguards.cmake)
@@ -43,7 +43,7 @@ add_subdirectory(src)
 
 # set cdash buildname
 set(BUILDNAME
-    "${CMAKE_SYSTEM_NAME}-${CMAKE_HOST_SYSTEM_PROCESSOR}-${CMAKE_Fortran_COMPILER_ID}-${cmake_build_type_tolower}"
+    "${CMAKE_SYSTEM_NAME}-${CMAKE_HOST_SYSTEM_PROCESSOR}-${cmake_build_type_tolower}"
     CACHE STRING
     "Name of build on the dashboard"
     )
