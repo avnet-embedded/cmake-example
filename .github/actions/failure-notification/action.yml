@@ -19,6 +19,12 @@ inputs:
   steps-input:
     description: "toJson(steps) for parent job"
     required: true
+  sendgrid-api-key:
+    description: "Sendgrid api token"
+    required: true
+  sendgrid-email-template:
+    description: "template to use"
+    required: true
 
 runs:
   using: composite
@@ -104,7 +110,7 @@ runs:
                  }
               }
            ],
-           "template_id":"${{ secrets.EMAIL_TEMPLATE_FAILED_JOB }}"
+           "template_id":"${{ inputs.sendgrid-email-template }}"
         }'
       env:
-        SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+        SENDGRID_API_KEY: ${{ inputs.sendgrid-api-key }}
